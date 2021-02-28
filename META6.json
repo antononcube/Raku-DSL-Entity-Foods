@@ -4,7 +4,7 @@
   "api": "1",
   "auth": "github:antononcube",
   "version": "0.1.0",
-  "description": "Grammars food and drink names.",
+  "description": "Grammars for food and drink entity names.",
   "authors": [
     "Anton Antonov"
   ],
