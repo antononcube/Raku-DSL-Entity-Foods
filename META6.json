@@ -1,0 +1,34 @@
+{
+  "perl": "6.d",
+  "name": "DSL::Entity::English::Foods",
+  "api": "1",
+  "auth": "github:antononcube",
+  "version": "0.1.0",
+  "description": "Grammars food and drink names.",
+  "authors": [
+    "Anton Antonov"
+  ],
+  "license": "GPL-3.0-or-later",
+  "provides": {
+    "DSL::Entity::English::FoodEntities": "lib/DSL/Entity/English/Foods.rakumod",
+    "DSL::Entity::English::Foods::Grammar": "lib/DSL/Entity/English/Foods/Grammar.rakumod",
+    "DSL::Entity::English::Foods::Grammar::FoodEntities": "lib/DSL/Entity/English/Foods/Grammar/FoodEntities.rakumod",
+    "DSL::Entity::English::Foods::Actions::Bulgarian::Standard": "lib/DSL/Entity/English/Foods/Actions/Bulgarian/Standard.rakumod",
+    "DSL::Entity::English::Foods::Actions::WL::System": "lib/DSL/Entity/English/Foods/Actions/WL/System.rakumod"
+  },
+  "depends": [
+    "DSL::Shared"
+  ],
+  "build-depends": [],
+  "test-depends": [],
+  "resources": [],
+  "tags": [
+    "food",
+    "drink",
+    "entity",
+    "parser",
+    "interpreter",
+    "ner"
+  ],
+  "source-url": "https://github.com/antononcube/Raku-DSL-Entity-English-Foods.git"
+}
