@@ -8,7 +8,7 @@ my $pCOMMAND = DSL::Entity::English::Foods::Grammar;
 
 say $pCOMMAND.parse('chocolate chip cookie ice creams', rule => 'food-entity-command');
 
-say $pCOMMAND.parse('fried tomatoes', rule => 'food-entity-command');
+say $pCOMMAND.parse('fried tomatoese', rule => 'food-entity-command');
 #
 say $pCOMMAND.subparse('beef stir - fried with green peppers in black bean sauce', rule => 'food-entity-command');
 
