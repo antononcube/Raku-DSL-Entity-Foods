@@ -6,20 +6,19 @@ my $pCOMMAND = DSL::Entity::English::Foods::Grammar;
 
 #use Grammar::Tracer;
 
-say $pCOMMAND.parse('fried tomatoes', rule => 'food-entity-command');
-
 say $pCOMMAND.parse('chocolate chip cookie ice creams', rule => 'food-entity-command');
 
-#say $pCOMMAND.parse('i want arizona iced tea', rule => 'food-entity-command');
+say $pCOMMAND.parse('fried tomatoes', rule => 'food-entity-command');
 #
-#say $pCOMMAND.parse('i want mac \' n cheese', rule => 'food-entity-command');
-#
-#say $pCOMMAND.parse('i want black - eyed peas', rule => 'food-entity-command');
+say $pCOMMAND.subparse('beef stir - fried with green peppers in black bean sauce', rule => 'food-entity-command');
 
-#say $pCOMMAND.parse( 'create classifier ensemble with 5 of RandomForest classifiers', rule => 'classifier-ensemble-creation-command');
-#say $pCOMMAND.parse( 'create classifier ensemble with 5 of RandomForest classifiers using 0.7 resampling', rule => 'classifier-ensemble-creation-command');
-#say $pCOMMAND.parse( 'create classifier ensemble with 5 of RandomForest classifiers using 70 % resampling', rule => 'classifier-ensemble-creation-command');
-#say $pCOMMAND.subparse( 'split data with ratio 0.8 and with label proportional method');
+
+say $pCOMMAND.parse('i want arizona iced tea');
+#
+say $pCOMMAND.parse('i want mac n cheese');
+#
+say $pCOMMAND.parse('i want black-eyed peas');
+
 
 #
 #say "=" x 60;
