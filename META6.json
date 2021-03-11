@@ -21,7 +21,7 @@
   ],
   "build-depends": [],
   "test-depends": [],
-  "resources": [],
+  "resources": [ "FoodNames.txt" ],
   "tags": [
     "food",
     "drink",
