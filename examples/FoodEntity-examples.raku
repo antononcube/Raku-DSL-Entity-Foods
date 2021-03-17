@@ -10,7 +10,7 @@ say $pCOMMAND.parse('chocolate chip cookie ice creams', rule => 'food-entity-com
 
 say $pCOMMAND.parse('fried tomatoese', rule => 'food-entity-command');
 #
-say $pCOMMAND.subparse('beef stir - fried with green peppers in black bean sauce', rule => 'food-entity-command');
+#say $pCOMMAND.subparse('beef stir - fried with green peppers in black bean sauce', rule => 'food-entity-command');
 
 
 say $pCOMMAND.parse('i want arizona iced tea');
