@@ -18,14 +18,14 @@ sub known-food-name(Str:D $phrase, Bool :$bool = True, Bool :$warn = True) {
     known-phrase( $knownFoodNames, $knownFoodNameWords, $phrase, :$bool, :$warn )
 }
 
-role DSL::Entity::English::Foods::Grammar::FoodEntities
+role DSL::Entity::English::Foods::Grammar::FoodNames
         does DSL::Shared::Roles::English::PipelineCommand {
 
     rule food-entity{
         <food-name-known>
     }
     rule food-name-known {
-        ([[\w]+ ]+) <?{ known-food-name($0.Str) }>
+         ( <word-value>+ % \h+ ) <?{ known-food-name($0.Str) }>
     }
 
 }

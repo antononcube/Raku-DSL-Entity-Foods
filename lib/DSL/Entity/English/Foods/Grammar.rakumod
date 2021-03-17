@@ -33,11 +33,11 @@ use v6;
 use DSL::Shared::Roles::PredicateSpecification;
 use DSL::Shared::Roles::ErrorHandling;
 
-use DSL::Entity::English::Foods::Grammar::FoodEntities;
+use DSL::Entity::English::Foods::Grammar::FoodNames;
 
 grammar DSL::Entity::English::Foods::Grammar
         does DSL::Shared::Roles::ErrorHandling
-        does DSL::Entity::English::Foods::Grammar::FoodEntities {
+        does DSL::Entity::English::Foods::Grammar::FoodNames {
     # TOP
     rule TOP {
         <pipeline-command> |
