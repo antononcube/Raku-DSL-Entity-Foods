@@ -21,7 +21,7 @@ sub known-food-name(Str:D $phrase, Bool :$bool = True, Bool :$warn = True) {
 role DSL::Entity::English::Foods::Grammar::FoodNames
         does DSL::Shared::Roles::English::PipelineCommand {
 
-    rule food-entity{
+    rule food-name{
         <food-name-known>
     }
     rule food-name-known {

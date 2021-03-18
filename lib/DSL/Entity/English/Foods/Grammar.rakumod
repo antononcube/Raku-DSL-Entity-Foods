@@ -47,16 +47,16 @@ grammar DSL::Entity::English::Foods::Grammar
         <data-query-command>
     }
 
-    rule food-entity-command { <food-entity> }
+    rule food-entity-command { <food-name> }
 
-    rule love-food-entity-command { 'i' [ 'want' | 'crave' ] <food-entity> }
+    rule love-food-entity-command { 'i' [ 'want' | 'crave' ] <food-name> }
 
-    rule data-query-command { [ 'how' 'many' | 'what' 'count' ] .'of' <food-entity> 'is' 'in' 'my' [ 'fridge' | 'refrigerator' ] }
+    rule data-query-command { [ 'how' 'many' | 'what' 'count' ] .'of' <food-name> 'is' 'in' 'my' [ 'fridge' | 'refrigerator' ] }
 
     rule cooking-food-entity-command {
-        'i' [ 'want' | 'plan' ] 'to' 'cook' <food-entity> |
-        [ 'tell' 'me' | 'give' 'directions' ] 'how' 'to' 'cook' <food-entity> |
-        'instruct' 'me' 'to' 'cook' <food-entity>
+        'i' [ 'want' | 'plan' ] 'to' 'cook' <food-name> |
+        [ 'tell' 'me' | 'give' 'directions' ] 'how' 'to' 'cook' <food-name> |
+        'instruct' 'me' 'to' 'cook' <food-name>
     }
 
 }
