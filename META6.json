@@ -12,7 +12,7 @@
   "provides": {
     "DSL::Entity::English::FoodEntities": "lib/DSL/Entity/English/Foods.rakumod",
     "DSL::Entity::English::Foods::Grammar": "lib/DSL/Entity/English/Foods/Grammar.rakumod",
-    "DSL::Entity::English::Foods::Grammar::FoodNames": "lib/DSL/Entity/English/Foods/Grammar/FoodNames.rakumod",
+    "DSL::Entity::English::Foods::Grammar::EntityNames": "lib/DSL/Entity/English/Foods/Grammar/EntityNames.rakumod",
     "DSL::Entity::English::Foods::Actions::Bulgarian::Standard": "lib/DSL/Entity/English/Foods/Actions/Bulgarian/Standard.rakumod",
     "DSL::Entity::English::Foods::Actions::WL::System": "lib/DSL/Entity/English/Foods/Actions/WL/System.rakumod"
   },
