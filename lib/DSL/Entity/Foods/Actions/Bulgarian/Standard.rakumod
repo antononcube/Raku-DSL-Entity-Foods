@@ -1,7 +1,7 @@
 =begin comment
 #==============================================================================
 #
-#   Food Entities WL-System actions in Raku (Perl 6)
+#   Food Entities Bulgarian DSL actions in Raku (Perl 6)
 #   Copyright (C) 2021  Anton Antonov
 #
 #   This program is free software: you can redistribute it and/or modify
@@ -29,17 +29,20 @@
 =end comment
 
 use v6;
+use DSL::Entity::Foods::Grammar;
 
-use DSL::Entity::English::Foods::Grammar;
 use DSL::Shared::Actions::English::WL::PipelineCommand;
-#use DSL::Entity::English::Foods::Actions::WL::FoodEntities;
+use DSL::Shared::Actions::CommonStructures;
 
-class DSL::Entity::English::Foods::Actions::WL::System
-        is DSL::Shared::Actions::English::WL::PipelineCommand {
+unit module DSL::Entity::Foods::Actions::Bulgarian::Standard;
+
+class DSL::Entity::Foods::Actions::Bulgarian::Standard
+        is DSL::Shared::Actions::CommonStructures {
 
     # method TOP($/) { make $/.values[0].made; }
 
-    method TOP($/) { make 'Not implemented.'; }
+    method TOP($/) {
+        make 'Not implemented.';
+    }
 
-    method ice-cream-food-entity { make 'Entity["IceCream"]'; }
 }

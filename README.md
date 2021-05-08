@@ -1,4 +1,4 @@
-# DSL Entity English Foods
+# Raku DSL::Entity::Foods
 
 Raku grammar classes for food and drink entities (food and drink names.)
 
@@ -23,8 +23,8 @@ zef install https://github.com/antononcube/Raku-DSL-Entity-English-Foods.git
 ## Examples
 
 ```perl6
-use DSL::Entity::English::Foods::Grammar;
-my $pCOMMAND = DSL::Entity::English::Foods::Grammar;
+use DSL::Entity::Foods::Grammar;
+my $pCOMMAND = DSL::Entity::Foods::Grammar;
 say $pCOMMAND.parse('chocolate chip cookie ice creams', rule => 'food-entity-command');
 say $pCOMMAND.parse('fried tomatoese', rule => 'food-entity-command');
 ```
@@ -42,6 +42,6 @@ say $pCOMMAND.parse('fried tomatoese', rule => 'food-entity-command');
 [GitHub/antononcube](https://github.com/antononcube).
 
 [AAr3] Anton Antonov,
-[DSL::Entity::English::Jobs Raku package](https://github.com/antononcube/Raku-DSL-Entity-English-Jobs),
+[DSL::Entity::Jobs Raku package](https://github.com/antononcube/Raku-DSL-Entity-Jobs),
 (2021),
 [GitHub/antononcube](https://github.com/antononcube).

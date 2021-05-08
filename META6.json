@@ -1,6 +1,6 @@
 {
   "perl": "6.d",
-  "name": "DSL::Entity::English::Foods",
+  "name": "DSL::Entity::Foods",
   "api": "1",
   "auth": "github:antononcube",
   "version": "0.1.0",
@@ -10,11 +10,11 @@
   ],
   "license": "GPL-3.0-or-later",
   "provides": {
-    "DSL::Entity::English::FoodEntities": "lib/DSL/Entity/English/Foods.rakumod",
-    "DSL::Entity::English::Foods::Grammar": "lib/DSL/Entity/English/Foods/Grammar.rakumod",
-    "DSL::Entity::English::Foods::Grammar::EntityNames": "lib/DSL/Entity/English/Foods/Grammar/EntityNames.rakumod",
-    "DSL::Entity::English::Foods::Actions::Bulgarian::Standard": "lib/DSL/Entity/English/Foods/Actions/Bulgarian/Standard.rakumod",
-    "DSL::Entity::English::Foods::Actions::WL::System": "lib/DSL/Entity/English/Foods/Actions/WL/System.rakumod"
+    "DSL::Entity::English::FoodEntities": "lib/DSL/Entity/Foods.rakumod",
+    "DSL::Entity::Foods::Grammar": "lib/DSL/Entity/Foods/Grammar.rakumod",
+    "DSL::Entity::Foods::Grammar::EntityNames": "lib/DSL/Entity/Foods/Grammar/EntityNames.rakumod",
+    "DSL::Entity::Foods::Actions::Bulgarian::Standard": "lib/DSL/Entity/Foods/Actions/Bulgarian/Standard.rakumod",
+    "DSL::Entity::Foods::Actions::WL::System": "lib/DSL/Entity/Foods/Actions/WL/System.rakumod"
   },
   "depends": [
     "DSL::Shared"
@@ -30,5 +30,5 @@
     "interpreter",
     "ner"
   ],
-  "source-url": "https://github.com/antononcube/Raku-DSL-Entity-English-Foods.git"
+  "source-url": "https://github.com/antononcube/Raku-DSL-Entity-Foods.git"
 }

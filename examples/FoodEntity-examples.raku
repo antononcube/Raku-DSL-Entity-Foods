@@ -1,8 +1,8 @@
 use lib './lib';
 use lib '.';
-use DSL::Entity::English::Foods;
+use DSL::Entity::Foods;
 
-my $pCOMMAND = DSL::Entity::English::Foods::Grammar;
+my $pCOMMAND = DSL::Entity::Foods::Grammar;
 
 #use Grammar::Tracer;
 

@@ -1,7 +1,7 @@
 =begin comment
 #==============================================================================
 #
-#   Food Entities Bulgarian DSL actions in Raku (Perl 6)
+#   Food enities grammar in Raku
 #   Copyright (C) 2021  Anton Antonov
 #
 #   This program is free software: you can redistribute it and/or modify
@@ -23,26 +23,41 @@
 #
 #==============================================================================
 #
-#   For more details about Raku (Perl6) see https://raku.org/ .
+#   For more details about Raku see https://raku.org/ .
 #
 #==============================================================================
 =end comment
 
 use v6;
-use DSL::Entity::English::Foods::Grammar;
 
-use DSL::Shared::Actions::English::WL::PipelineCommand;
-use DSL::Shared::Actions::CommonStructures;
+use DSL::Shared::Roles::PredicateSpecification;
+use DSL::Shared::Roles::ErrorHandling;
 
-unit module DSL::Entity::English::Foods::Actions::Bulgarian::Standard;
+use DSL::Entity::Foods::Grammar::EntityNames;
 
-class DSL::Entity::English::Foods::Actions::Bulgarian::Standard
-        is DSL::Shared::Actions::CommonStructures {
+grammar DSL::Entity::Foods::Grammar
+        does DSL::Shared::Roles::ErrorHandling
+        does DSL::Entity::Foods::Grammar::EntityNames {
+    # TOP
+    rule TOP {
+        <pipeline-command> |
+        <food-entity-command> |
+        <love-food-entity-command> |
+        <cooking-food-entity-command> |
+        <data-query-command>
+    }
 
-    # method TOP($/) { make $/.values[0].made; }
+    rule food-entity-command { <entity-food-name> }
 
-    method TOP($/) {
-        make 'Not implemented.';
+    rule love-food-entity-command { 'i' [ 'want' | 'crave' ] <entity-food-name> }
+
+    rule data-query-command { [ 'how' 'many' | 'what' 'count' ] .'of' <entity-food-name> 'is' 'in' 'my' [ 'fridge' | 'refrigerator' ] }
+
+    rule cooking-food-entity-command {
+        'i' [ 'want' | 'plan' ] 'to' 'cook' <entity-food-name> |
+        [ 'tell' 'me' | 'give' 'directions' ] 'how' 'to' 'cook' <entity-food-name> |
+        'instruct' 'me' 'to' 'cook' <entity-food-name>
     }
 
 }
+

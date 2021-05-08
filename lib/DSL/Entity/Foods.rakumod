@@ -1,33 +1,33 @@
 
 =begin pod
 
-=head1 DSL::Entity::English::Foods
+=head1 DSL::Entity::Foods
 
-C<DSL::Entity::English::Foods> package has grammar and action classes for the parsing and
+C<DSL::Entity::Foods> package has grammar and action classes for the parsing and
 interpretation of natural language commands that specify classification workflows.
 
 =head1 Synopsis
 
-    use DSL::Entity::English::Foods;
+    use DSL::Entity::Foods;
     my $rcode = ToFoodEntityCode('use dfTitanic; split data in training and testing parts with ratio 0.7; make a classifier; show roc curves');
 
 =end pod
 
-unit module DSL::Entity::English::Foods;
+unit module DSL::Entity::Foods;
 
 use DSL::Shared::Utilities::MetaSpecsProcessing;
 
-use DSL::Entity::English::Foods::Grammar;
-use DSL::Entity::English::Foods::Actions::WL::System;
+use DSL::Entity::Foods::Grammar;
+use DSL::Entity::Foods::Actions::WL::System;
 
-use DSL::Entity::English::Foods::Actions::Bulgarian::Standard;
+use DSL::Entity::Foods::Actions::Bulgarian::Standard;
 
 #-----------------------------------------------------------
 my %targetToAction =
-    "Mathematica"      => DSL::Entity::English::Foods::Actions::WL::System,
-    "WL"               => DSL::Entity::English::Foods::Actions::WL::System,
-    "WL-System"        => DSL::Entity::English::Foods::Actions::WL::System,
-    "Bulgarian"        => DSL::Entity::English::Foods::Actions::Bulgarian::Standard;
+    "Mathematica"      => DSL::Entity::Foods::Actions::WL::System,
+    "WL"               => DSL::Entity::Foods::Actions::WL::System,
+    "WL-System"        => DSL::Entity::Foods::Actions::WL::System,
+    "Bulgarian"        => DSL::Entity::Foods::Actions::Bulgarian::Standard;
 
 my %targetToSeparator{Str} =
     "Julia"            => "\n",
@@ -52,7 +52,7 @@ multi ToFoodEntityCode ( Str $command where not has-semicolon($command), Str $ta
 
     die 'Unknown target.' unless %targetToAction{$target}:exists;
 
-    my $match = DSL::Entity::English::Foods::Grammar.parse($command.trim, actions => %targetToAction{$target} );
+    my $match = DSL::Entity::Foods::Grammar.parse($command.trim, actions => %targetToAction{$target} );
     die 'Cannot parse the given command.' unless $match;
     return $match.made;
 }
