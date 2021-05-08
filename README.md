@@ -17,7 +17,7 @@ Raku grammar classes for food and drink entities (food and drink names.)
 
 ```shell
 zef install https://github.com/antononcube/Raku-DSL-Shared.git
-zef install https://github.com/antononcube/Raku-DSL-Entity-English-Foods.git
+zef install https://github.com/antononcube/Raku-DSL-Entity-Foods.git
 ```
 
 ## Examples
