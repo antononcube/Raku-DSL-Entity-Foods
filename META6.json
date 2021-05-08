@@ -8,7 +8,7 @@
   "authors": [
     "Anton Antonov"
   ],
-  "license": "GPL-3.0-or-later",
+  "license": "Artistic-2.0",
   "provides": {
     "DSL::Entity::English::FoodEntities": "lib/DSL/Entity/Foods.rakumod",
     "DSL::Entity::Foods::Grammar": "lib/DSL/Entity/Foods/Grammar.rakumod",
