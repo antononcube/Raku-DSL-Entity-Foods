@@ -1,9 +1,9 @@
 
 =begin pod
 
-=head1 DSL::Entity::Food
+=head1 DSL::Entity::Foods
 
-C<DSL::Entity::Food> package has grammar and action classes for the parsing and
+C<DSL::Entity::Foods> package has grammar and action classes for the parsing and
 interpretation of natural language commands that specify metadata.
 
 =head1 Synopsis

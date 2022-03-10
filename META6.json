@@ -13,7 +13,7 @@
   "build-depends": [],
   "test-depends": [],
   "provides": {
-    "DSL::Entity::English::Foods": "lib/DSL/Entity/Foods.rakumod",
+    "DSL::Entity::Foods": "lib/DSL/Entity/Foods.rakumod",
     "DSL::Entity::Foods::Actions::Bulgarian::Standard": "lib/DSL/Entity/Foods/Actions/Bulgarian/Standard.rakumod",
     "DSL::Entity::Foods::Actions::Raku::System": "lib/DSL/Entity/Foods/Actions/Raku/System.rakumod",
     "DSL::Entity::Foods::Actions::WL::Entity": "lib/DSL/Entity/Foods/Actions/WL/Entity.rakumod",
