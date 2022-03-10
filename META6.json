@@ -1,27 +1,28 @@
 {
-  "perl": "6.d",
   "name": "DSL::Entity::Foods",
-  "api": "1",
-  "auth": "github:antononcube",
-  "version": "0.1.0",
   "description": "Grammars for food and drink entity names.",
+  "version": "0.1.0",
+  "perl": "6.d",
   "authors": [
     "Anton Antonov"
   ],
-  "license": "Artistic-2.0",
-  "provides": {
-    "DSL::Entity::English::FoodEntities": "lib/DSL/Entity/Foods.rakumod",
-    "DSL::Entity::Foods::Grammar": "lib/DSL/Entity/Foods/Grammar.rakumod",
-    "DSL::Entity::Foods::Grammar::EntityNames": "lib/DSL/Entity/Foods/Grammar/EntityNames.rakumod",
-    "DSL::Entity::Foods::Actions::Bulgarian::Standard": "lib/DSL/Entity/Foods/Actions/Bulgarian/Standard.rakumod",
-    "DSL::Entity::Foods::Actions::WL::System": "lib/DSL/Entity/Foods/Actions/WL/System.rakumod"
-  },
+  "auth": "github:antononcube",
   "depends": [
     "DSL::Shared"
   ],
   "build-depends": [],
   "test-depends": [],
-  "resources": [ "FoodNames.txt" ],
+  "provides": {
+    "DSL::Entity::English::FoodEntities": "lib/DSL/Entity/Foods.rakumod",
+    "DSL::Entity::Foods::Actions::Bulgarian::Standard": "lib/DSL/Entity/Foods/Actions/Bulgarian/Standard.rakumod",
+    "DSL::Entity::Foods::Actions::WL::System": "lib/DSL/Entity/Foods/Actions/WL/System.rakumod",
+    "DSL::Entity::Foods::Grammar": "lib/DSL/Entity/Foods/Grammar.rakumod",
+    "DSL::Entity::Foods::Grammar::EntityNames": "lib/DSL/Entity/Foods/Grammar/EntityNames.rakumod"
+  },
+  "resources": [
+    "FoodNameToEntityID_EN.csv"
+  ],
+  "license": "Artistic-2.0",
   "tags": [
     "food",
     "drink",
@@ -30,5 +31,6 @@
     "interpreter",
     "ner"
   ],
+  "api": "1",
   "source-url": "https://github.com/antononcube/Raku-DSL-Entity-Foods.git"
 }

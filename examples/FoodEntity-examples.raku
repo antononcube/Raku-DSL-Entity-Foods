@@ -3,6 +3,7 @@ use lib '.';
 use DSL::Entity::Foods;
 
 my $pCOMMAND = DSL::Entity::Foods::Grammar;
+$pCOMMAND.set-resources(DSL::Entity::Foods::resource-access-object());
 
 #use Grammar::Tracer;
 

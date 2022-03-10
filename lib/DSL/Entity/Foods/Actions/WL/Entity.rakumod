@@ -4,7 +4,7 @@ use DSL::Entity::Foods::Grammar;
 use DSL::Shared::Actions::English::WL::PipelineCommand;
 use DSL::Entity::Foods::ResourceAccess;
 
-class DSL::Entity::Foods::Actions::WL::System
+class DSL::Entity::Foods::Actions::WL::Entity
         is DSL::Shared::Actions::English::WL::PipelineCommand {
 
     has DSL::Entity::Foods::ResourceAccess $.resources;

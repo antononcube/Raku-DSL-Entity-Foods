@@ -1,77 +1,75 @@
 
 =begin pod
 
-=head1 DSL::Entity::Foods
+=head1 DSL::Entity::Food
 
-C<DSL::Entity::Foods> package has grammar and action classes for the parsing and
-interpretation of natural language commands that specify classification workflows.
+C<DSL::Entity::Food> package has grammar and action classes for the parsing and
+interpretation of natural language commands that specify metadata.
 
 =head1 Synopsis
 
-    use DSL::Entity::Foods;
-    my $rcode = ToFoodEntityCode('use dfTitanic; split data in training and testing parts with ratio 0.7; make a classifier; show roc curves');
+    use DSL::Entity::Food;
+    my $rcode = ToFoodEntityCode('ScreeningEvent');
 
 =end pod
 
 unit module DSL::Entity::Foods;
 
-use DSL::Shared::Utilities::MetaSpecsProcessing;
+use DSL::Shared::Utilities::CommandProcessing;
 
 use DSL::Entity::Foods::Grammar;
+use DSL::Entity::Foods::ResourceAccess;
+
+use DSL::Entity::Foods::Actions::Raku::System;
+use DSL::Entity::Foods::Actions::WL::Entity;
 use DSL::Entity::Foods::Actions::WL::System;
 
 use DSL::Entity::Foods::Actions::Bulgarian::Standard;
 
 #-----------------------------------------------------------
 my %targetToAction =
-    "Mathematica"      => DSL::Entity::Foods::Actions::WL::System,
-    "WL"               => DSL::Entity::Foods::Actions::WL::System,
-    "WL-System"        => DSL::Entity::Foods::Actions::WL::System,
-    "Bulgarian"        => DSL::Entity::Foods::Actions::Bulgarian::Standard;
+        "Mathematica"      => DSL::Entity::Foods::Actions::WL::System,
+        "Raku"             => DSL::Entity::Foods::Actions::Raku::System,
+        "Raku-System"      => DSL::Entity::Foods::Actions::Raku::System,
+        "WL"               => DSL::Entity::Foods::Actions::WL::System,
+        "WL-System"        => DSL::Entity::Foods::Actions::WL::System,
+        "WL-Entity"        => DSL::Entity::Foods::Actions::WL::Entity,
+        "Bulgarian"        => DSL::Entity::Foods::Actions::Bulgarian::Standard;
 
-my %targetToSeparator{Str} =
-    "Julia"            => "\n",
-    "Julia-DataFrames" => "\n",
-    "R"                => " ;\n",
-    "Mathematica"      => "\n",
-    "WL"               => ";\n",
-    "WL-ClCon"         => " ==>\n",
-    "WL-System"        => ";\n",
-    "Bulgarian"        => "\n";
+my %targetToAction2{Str} = %targetToAction.grep({ $_.key.contains('-') }).map({ $_.key.subst('-', '::').Str => $_.value }).Hash;
+%targetToAction = |%targetToAction , |%targetToAction2;
 
+#| Target to separators rules
+my Str %targetToSeparator{Str} = DSL::Shared::Utilities::CommandProcessing::target-separator-rules();
 
 #-----------------------------------------------------------
-sub has-semicolon (Str $word) {
-    return defined index $word, ';';
+my DSL::Entity::Foods::ResourceAccess $resourceObj;
+
+#| Get the resources access object.
+our sub resource-access-object(--> DSL::Entity::Foods::ResourceAccess) { return $resourceObj; }
+
+#-----------------------------------------------------------
+#| Named entity recognition for metadata. (proto)
+proto ToFoodEntityCode(Str $command, Str $target = 'WL-System', | ) is export {*}
+
+#| Named entity recognition for metadata
+multi ToFoodEntityCode( Str $command, Str $target = 'WL-System', *%args ) {
+
+    my $pCOMMAND = DSL::Entity::Foods::Grammar;
+    $pCOMMAND.set-resources(DSL::Entity::Foods::resource-access-object());
+
+    my $ACTOBJ = %targetToAction{$target}.new(resources => DSL::Entity::Foods::resource-access-object());
+
+    DSL::Shared::Utilities::CommandProcessing::ToWorkflowCode( $command,
+                                                               grammar => $pCOMMAND,
+                                                               actions => $ACTOBJ,
+                                                               separator => %targetToSeparator{$target},
+                                                               |%args )
 }
 
 #-----------------------------------------------------------
-proto ToFoodEntityCode(Str $command, Str $target = 'tidyverse' ) is export {*}
-
-multi ToFoodEntityCode ( Str $command where not has-semicolon($command), Str $target = 'WL-ClCon' ) {
-
-    die 'Unknown target.' unless %targetToAction{$target}:exists;
-
-    my $match = DSL::Entity::Foods::Grammar.parse($command.trim, actions => %targetToAction{$target} );
-    die 'Cannot parse the given command.' unless $match;
-    return $match.made;
-}
-
-multi ToFoodEntityCode ( Str $command where has-semicolon($command), Str $target = 'WL-ClCon' ) {
-
-    my $specTarget = get-dsl-spec( $command, 'target');
-
-    $specTarget = $specTarget ?? $specTarget<DSLTARGET> !! $target;
-
-    die 'Unknown target.' unless %targetToAction{$specTarget}:exists;
-
-    my @commandLines = $command.trim.split(/ ';' \s* /);
-
-    @commandLines = grep { $_.Str.chars > 0 }, @commandLines;
-
-    my @cmdLines = map { ToFoodEntityCode($_, $specTarget) }, @commandLines;
-
-    @cmdLines = grep { $_.^name eq 'Str' }, @cmdLines;
-
-    return @cmdLines.join( %targetToSeparator{$specTarget} ).trim;
+$resourceObj := BEGIN {
+    my DSL::Entity::Foods::ResourceAccess $obj .= new;
+    $obj.ingest-resource-files();
+    $obj
 }
