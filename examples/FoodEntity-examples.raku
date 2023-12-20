@@ -21,27 +21,26 @@ say $pCOMMAND.parse('i want mac n cheese');
 say $pCOMMAND.parse('i want black-eyed peas');
 
 
-#
-#say "=" x 60;
-#
-#
-#my @testCommands = (
-#''
-#);
-#
-#
+say "=" x 60;
+
+my @testCommands = (
+'fried tomatoes',
+'banana split'
+);
+
 #my @targets = ('Bulgarian', 'WL-System');
-#
-#for @testCommands -> $c {
-#    say "=" x 30;
-#    say $c;
-#    for @targets -> $t {
-#        say '-' x 30;
-#        say $t;
-#        say '-' x 30;
-#        my $start = now;
-#        my $res = ToFoodEntityCode($c, $t);
-#        say "time:", now - $start;
-#        say $res;
-#    }
-#}
+my @targets = ('WL-System');
+
+for @testCommands -> $c {
+    say "-" x 30;
+    say $c;
+    for @targets -> $t {
+        say '-' x 30;
+        say $t;
+        say '-' x 30;
+        my $start = now;
+        my $res = ToFoodEntityCode($c, $t);
+        say "time:", now - $start;
+        say $res;
+    }
+}
