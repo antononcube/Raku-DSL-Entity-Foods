@@ -6,9 +6,9 @@
   "authors": [
     "Anton Antonov"
   ],
-  "auth": "github:antononcube",
+  "auth": "zef:antononcube",
   "depends": [
-    "DSL::Shared"
+    "DSL::Shared:ver<0.2.1+>"
   ],
   "build-depends": [],
   "test-depends": [],
