@@ -1,5 +1,4 @@
-use lib './lib';
-use lib '.';
+# use lib <. lib>;
 use DSL::Entity::Foods;
 
 my $pCOMMAND = DSL::Entity::Foods::Grammar;
