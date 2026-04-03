@@ -13,6 +13,10 @@ class DSL::Entity::Foods::Actions::WL::Entity
         make $/.values[0].made;
     }
 
+    method food-entity-command($/) {
+        make $/.values[0].made;
+    }
+
     method entity-food-name($/) {
         my $nm = $!resources.name-to-entity-id('Food', $/.Str.lc, :!warn);
         make '"' ~ $nm ~ '"';

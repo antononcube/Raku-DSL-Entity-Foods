@@ -20,6 +20,10 @@ class DSL::Entity::Foods::Actions::Raku::System
         make $/.values[0].made;
     }
 
+    method food-entity-command($/) {
+        make $/.values[0].made;
+    }
+
     method entity-food-name($/) {
         my $nm = $!resources.name-to-entity-id('Food', $/.Str.lc, :!warn);
         with $nm { make '"' ~ $nm ~ '"' }
