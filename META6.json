@@ -1,39 +1,37 @@
 {
-  "name": "DSL::Entity::Foods",
-  "description": "Grammars for food and drink entity names.",
-  "version": "0.1.0",
-  "perl": "6.d",
-  "authors": [
-    "Anton Antonov"
-  ],
-  "auth": "zef:antononcube",
-  "depends": [
-    "DSL::Shared:ver<0.2.1+>"
-  ],
-  "build-depends": [],
-  "test-depends": [],
-  "provides": {
-    "DSL::Entity::Foods": "lib/DSL/Entity/Foods.rakumod",
-    "DSL::Entity::Foods::Actions::Bulgarian::Standard": "lib/DSL/Entity/Foods/Actions/Bulgarian/Standard.rakumod",
-    "DSL::Entity::Foods::Actions::Raku::System": "lib/DSL/Entity/Foods/Actions/Raku/System.rakumod",
-    "DSL::Entity::Foods::Actions::WL::Entity": "lib/DSL/Entity/Foods/Actions/WL/Entity.rakumod",
-    "DSL::Entity::Foods::Actions::WL::System": "lib/DSL/Entity/Foods/Actions/WL/System.rakumod",
-    "DSL::Entity::Foods::Grammar": "lib/DSL/Entity/Foods/Grammar.rakumod",
-    "DSL::Entity::Foods::Grammar::EntityNames": "lib/DSL/Entity/Foods/Grammar/EntityNames.rakumod",
-    "DSL::Entity::Foods::ResourceAccess": "lib/DSL/Entity/Foods/ResourceAccess.rakumod"
-  },
-  "resources": [
-    "FoodNameToEntityID_EN.csv"
-  ],
-  "license": "Artistic-2.0",
-  "tags": [
-    "food",
-    "drink",
-    "entity",
-    "parser",
-    "interpreter",
-    "ner"
-  ],
-  "api": "1",
-  "source-url": "https://github.com/antononcube/Raku-DSL-Entity-Foods.git"
+    "name": "DSL::Entity::Foods",
+    "description": "Grammars for food and drink entity names.",
+    "version": "0.1.0",
+    "authors": [
+        "Anton Antonov"
+    ],
+    "auth": "zef:antononcube",
+    "depends": [
+        "DSL::Shared:ver<0.2.11+>"
+    ],
+    "build-depends": [],
+    "provides": {
+        "DSL::Entity::Foods": "lib/DSL/Entity/Foods.rakumod",
+        "DSL::Entity::Foods::Actions::Bulgarian::Standard": "lib/DSL/Entity/Foods/Actions/Bulgarian/Standard.rakumod",
+        "DSL::Entity::Foods::Actions::Raku::System": "lib/DSL/Entity/Foods/Actions/Raku/System.rakumod",
+        "DSL::Entity::Foods::Actions::WL::Entity": "lib/DSL/Entity/Foods/Actions/WL/Entity.rakumod",
+        "DSL::Entity::Foods::Actions::WL::System": "lib/DSL/Entity/Foods/Actions/WL/System.rakumod",
+        "DSL::Entity::Foods::Grammar": "lib/DSL/Entity/Foods/Grammar.rakumod",
+        "DSL::Entity::Foods::Grammar::EntityNames": "lib/DSL/Entity/Foods/Grammar/EntityNames.rakumod",
+        "DSL::Entity::Foods::ResourceAccess": "lib/DSL/Entity/Foods/ResourceAccess.rakumod"
+    },
+    "resources": [
+        "FoodNameToEntityID_EN.csv"
+    ],
+    "license": "Artistic-2.0",
+    "tags": [
+        "food",
+        "drink",
+        "entity",
+        "parser",
+        "interpreter",
+        "ner"
+    ],
+    "api": "1",
+    "source-url": "https://github.com/antononcube/Raku-DSL-Entity-Foods.git"
 }
