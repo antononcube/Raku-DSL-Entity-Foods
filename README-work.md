@@ -32,12 +32,6 @@ say ToFoodEntityCode('banana split');
 say ToFoodEntityCode('arizona ice tea');
 say ToFoodEntityCode('high fructose corn syrup');
 ```
-```
-#ERROR: Possible misspelling of 'arizona iced tea' as 'arizona ice tea'.
-# "WATSON_BananaSplit"
-# "WATSON_ArizonaIcedTea"
-# "WATSON_HighFructoseCornSyrup"
-```
 
 ### Grammar parsing
 
@@ -54,25 +48,9 @@ $pCOMMAND.set-resources(DSL::Entity::Foods::resource-access-object());
 
 say $pCOMMAND.parse('arizona iced tea', rule => 'food-entity-command');
 ```
-```
-# ｢arizona iced tea｣
-#  entity-food-name => ｢arizona iced tea｣
-#   0 => ｢arizona iced tea｣
-#    entity-name-part => ｢arizona｣
-#    entity-name-part => ｢iced｣
-#    entity-name-part => ｢tea｣
-```
 
 ```raku
 say $pCOMMAND.parse('fried tomatoese', rule => 'food-entity-command');
-```
-```
-#ERROR: Possible misspelling of 'fried tomatoes' as 'fried tomatoese'.
-# ｢fried tomatoese｣
-#  entity-food-name => ｢fried tomatoese｣
-#   0 => ｢fried tomatoese｣
-#    entity-name-part => ｢fried｣
-#    entity-name-part => ｢tomatoese｣
 ```
 
 -----
